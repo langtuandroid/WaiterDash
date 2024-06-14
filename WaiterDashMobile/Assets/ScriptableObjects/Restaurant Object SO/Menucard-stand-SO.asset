@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6fe3443c10217489a50329bec5fcc1, type: 3}
+  m_Name: Menucard-stand-SO
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4763157975726867991, guid: 65d2fed36c610064a9f9147a0486f6a6, type: 3}
+  sprite: {fileID: 0}
+  objectName: Menu Card Stand
+  objectType: 0
+  cookingTime: 0
+  price: 0
+  orderQuantity: 0

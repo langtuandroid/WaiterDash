@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="StoreItem" src="project://database/Assets/UI/Uxml/StoreItem.uxml?fileID=9197481963319205126&amp;guid=367b7d3e855093648b7a2d0e8a869257&amp;type=3#StoreItem" />
+    <ui:VisualElement name="store_container" focusable="false" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 100%; height: 100%; justify-content: center; align-items: center; align-self: center; position: absolute;">
+        <ui:VisualElement name="VisualElement" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 80%; height: 80%; align-items: center; justify-content: center; background-image: url(&apos;project://database/Assets/Layer%20Lab/GUI%20Pro-CasualGame/ResourcesData/Sprite/Components/Popup/Popup01_Single_Navy.png?fileID=21300000&amp;guid=eb3db5b0868bc4f348e3d3a1dfbf32a8&amp;type=3#Popup01_Single_Navy&apos;);">
+            <ui:ScrollView name="ScrollView" mode="Vertical" horizontal-scroller-visibility="Auto" vertical-scroller-visibility="Auto" touch-scroll-type="Clamped" focusable="true" style="width: 100%; height: 100%; align-self: auto; align-items: flex-start; flex-direction: column; justify-content: center; position: relative; min-width: auto; min-height: auto; flex-wrap: wrap; background-image: none; padding-left: 5%; padding-right: 5%; padding-top: 5%; padding-bottom: 5%; flex-grow: 0; flex-shrink: 1;">
+                <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; flex-wrap: wrap;">
+                    <ui:Instance template="StoreItem" name="StoreItem" style="flex-direction: column;" />
+                    <ui:Instance template="StoreItem" name="StoreItem" />
+                    <ui:Instance template="StoreItem" name="StoreItem" />
+                </ui:VisualElement>
+            </ui:ScrollView>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

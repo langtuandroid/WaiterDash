@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbba736aaed8a044bfd2622a8e4aafc, type: 3}
+  m_Name: PlateCounterSO
+  m_EditorClassIdentifier: 
+  ItemName: Plate Counter
+  type: 4
+  icon: {fileID: 21300000, guid: d36c12de4e636bd42837673197a1fc06, type: 3}
+  prefab: {fileID: 9182645583805460228, guid: 2263a3a2a220d5b4d8ab8983dc4dd699, type: 3}
+  price: 2000
+  level: 1

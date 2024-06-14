@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6fe3443c10217489a50329bec5fcc1, type: 3}
+  m_Name: Soda
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 2711749479777679618, guid: 34322510a67ea6f4d86adf984152f08c, type: 3}
+  sprite: {fileID: 21300000, guid: 27a89dfdb3f7548be95bf637bd5885d0, type: 3}
+  objectName: Soda
+  objectType: 3
+  cookingTime: 0
+  price: 10
+  orderQuantity: 1
+  disposable: 1

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6fe3443c10217489a50329bec5fcc1, type: 3}
+  m_Name: PaymentMachineSO
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6641346674299986858, guid: a91f3aee68db4d74e8bb73dac04c2bc4, type: 3}
+  sprite: {fileID: 0}
+  objectName: Payment Machine
+  objectType: 4

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbba736aaed8a044bfd2622a8e4aafc, type: 3}
+  m_Name: GlassCounterSO
+  m_EditorClassIdentifier: 
+  ItemName: Glass Counter
+  type: 4
+  icon: {fileID: 21300000, guid: cc9d73f6995dac54594e2332dce0ac3d, type: 3}
+  prefab: {fileID: 8567235059105671880, guid: bd799be5cc2675e408c8eeb02dda66f5, type: 3}
+  price: 2500
+  level: 1

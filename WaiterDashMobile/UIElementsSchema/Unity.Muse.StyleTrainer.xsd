@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:appui="Unity.AppUI.UI" xmlns:editor="UnityEditor.UIElements" xmlns:nav="Unity.AppUI.Navigation" xmlns:engine="UnityEngine.UIElements" xmlns="UnityEditor.Overlays" elementFormDefault="qualified" targetNamespace="Unity.Muse.StyleTrainer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="UnityEngine.UIElements.xsd" namespace="UnityEngine.UIElements" />
+  <xs:simpleType name="StyleModelInfo_preferred-tooltip-placement_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Bottom" />
+      <xs:enumeration value="BottomLeft" />
+      <xs:enumeration value="BottomRight" />
+      <xs:enumeration value="BottomStart" />
+      <xs:enumeration value="BottomEnd" />
+      <xs:enumeration value="Top" />
+      <xs:enumeration value="TopLeft" />
+      <xs:enumeration value="TopRight" />
+      <xs:enumeration value="TopStart" />
+      <xs:enumeration value="TopEnd" />
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="LeftTop" />
+      <xs:enumeration value="LeftBottom" />
+      <xs:enumeration value="Start" />
+      <xs:enumeration value="StartTop" />
+      <xs:enumeration value="StartBottom" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="RightTop" />
+      <xs:enumeration value="RightBottom" />
+      <xs:enumeration value="End" />
+      <xs:enumeration value="EndTop" />
+      <xs:enumeration value="EndBottom" />
+      <xs:enumeration value="InsideTopStart" />
+      <xs:enumeration value="InsideTopLeft" />
+      <xs:enumeration value="InsideTop" />
+      <xs:enumeration value="InsideTopEnd" />
+      <xs:enumeration value="InsideBottomStart" />
+      <xs:enumeration value="InsideBottom" />
+      <xs:enumeration value="InsideBottomEnd" />
+      <xs:enumeration value="InsideStart" />
+      <xs:enumeration value="InsideEnd" />
+      <xs:enumeration value="InsideCenter" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StyleModelInfo_scale_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="small" />
+      <xs:enumeration value="medium" />
+      <xs:enumeration value="large" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StyleModelInfo_theme_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dark" />
+      <xs:enumeration value="light" />
+      <xs:enumeration value="editor-dark" />
+      <xs:enumeration value="editor-light" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StyleModelInfo_dir_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ltr" />
+      <xs:enumeration value="Rtl" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="StyleModelInfoType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="engine:VisualElement" />
+        </xs:sequence>
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:attribute default="Bottom" name="preferred-tooltip-placement" xmlns:q1="Unity.Muse.StyleTrainer" type="q1:StyleModelInfo_preferred-tooltip-placement_Type" use="optional" />
+        <xs:attribute default="750" name="tooltip-delay-ms" type="xs:int" use="optional" />
+        <xs:attribute name="scale" xmlns:q2="Unity.Muse.StyleTrainer" type="q2:StyleModelInfo_scale_Type" use="optional" />
+        <xs:attribute name="theme" xmlns:q3="Unity.Muse.StyleTrainer" type="q3:StyleModelInfo_theme_Type" use="optional" />
+        <xs:attribute name="lang" type="xs:string" use="optional" />
+        <xs:attribute default="Ltr" name="dir" xmlns:q4="Unity.Muse.StyleTrainer" type="q4:StyleModelInfo_dir_Type" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StyleModelInfo" substitutionGroup="engine:VisualElement" xmlns:q5="Unity.Muse.StyleTrainer" type="q5:StyleModelInfoType" />
+  <xs:simpleType name="SampleOutputPromptInput_preferred-tooltip-placement_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Bottom" />
+      <xs:enumeration value="BottomLeft" />
+      <xs:enumeration value="BottomRight" />
+      <xs:enumeration value="BottomStart" />
+      <xs:enumeration value="BottomEnd" />
+      <xs:enumeration value="Top" />
+      <xs:enumeration value="TopLeft" />
+      <xs:enumeration value="TopRight" />
+      <xs:enumeration value="TopStart" />
+      <xs:enumeration value="TopEnd" />
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="LeftTop" />
+      <xs:enumeration value="LeftBottom" />
+      <xs:enumeration value="Start" />
+      <xs:enumeration value="StartTop" />
+      <xs:enumeration value="StartBottom" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="RightTop" />
+      <xs:enumeration value="RightBottom" />
+      <xs:enumeration value="End" />
+      <xs:enumeration value="EndTop" />
+      <xs:enumeration value="EndBottom" />
+      <xs:enumeration value="InsideTopStart" />
+      <xs:enumeration value="InsideTopLeft" />
+      <xs:enumeration value="InsideTop" />
+      <xs:enumeration value="InsideTopEnd" />
+      <xs:enumeration value="InsideBottomStart" />
+      <xs:enumeration value="InsideBottom" />
+      <xs:enumeration value="InsideBottomEnd" />
+      <xs:enumeration value="InsideStart" />
+      <xs:enumeration value="InsideEnd" />
+      <xs:enumeration value="InsideCenter" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SampleOutputPromptInput_scale_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="small" />
+      <xs:enumeration value="medium" />
+      <xs:enumeration value="large" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SampleOutputPromptInput_theme_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dark" />
+      <xs:enumeration value="light" />
+      <xs:enumeration value="editor-dark" />
+      <xs:enumeration value="editor-light" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SampleOutputPromptInput_dir_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ltr" />
+      <xs:enumeration value="Rtl" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SampleOutputPromptInputType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="engine:VisualElement" />
+        </xs:sequence>
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:attribute default="Bottom" name="preferred-tooltip-placement" xmlns:q6="Unity.Muse.StyleTrainer" type="q6:SampleOutputPromptInput_preferred-tooltip-placement_Type" use="optional" />
+        <xs:attribute default="750" name="tooltip-delay-ms" type="xs:int" use="optional" />
+        <xs:attribute name="scale" xmlns:q7="Unity.Muse.StyleTrainer" type="q7:SampleOutputPromptInput_scale_Type" use="optional" />
+        <xs:attribute name="theme" xmlns:q8="Unity.Muse.StyleTrainer" type="q8:SampleOutputPromptInput_theme_Type" use="optional" />
+        <xs:attribute name="lang" type="xs:string" use="optional" />
+        <xs:attribute default="Ltr" name="dir" xmlns:q9="Unity.Muse.StyleTrainer" type="q9:SampleOutputPromptInput_dir_Type" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SampleOutputPromptInput" substitutionGroup="engine:VisualElement" xmlns:q10="Unity.Muse.StyleTrainer" type="q10:SampleOutputPromptInputType" />
+  <xs:simpleType name="StyleModelInfoEditor_preferred-tooltip-placement_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Bottom" />
+      <xs:enumeration value="BottomLeft" />
+      <xs:enumeration value="BottomRight" />
+      <xs:enumeration value="BottomStart" />
+      <xs:enumeration value="BottomEnd" />
+      <xs:enumeration value="Top" />
+      <xs:enumeration value="TopLeft" />
+      <xs:enumeration value="TopRight" />
+      <xs:enumeration value="TopStart" />
+      <xs:enumeration value="TopEnd" />
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="LeftTop" />
+      <xs:enumeration value="LeftBottom" />
+      <xs:enumeration value="Start" />
+      <xs:enumeration value="StartTop" />
+      <xs:enumeration value="StartBottom" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="RightTop" />
+      <xs:enumeration value="RightBottom" />
+      <xs:enumeration value="End" />
+      <xs:enumeration value="EndTop" />
+      <xs:enumeration value="EndBottom" />
+      <xs:enumeration value="InsideTopStart" />
+      <xs:enumeration value="InsideTopLeft" />
+      <xs:enumeration value="InsideTop" />
+      <xs:enumeration value="InsideTopEnd" />
+      <xs:enumeration value="InsideBottomStart" />
+      <xs:enumeration value="InsideBottom" />
+      <xs:enumeration value="InsideBottomEnd" />
+      <xs:enumeration value="InsideStart" />
+      <xs:enumeration value="InsideEnd" />
+      <xs:enumeration value="InsideCenter" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StyleModelInfoEditor_scale_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="small" />
+      <xs:enumeration value="medium" />
+      <xs:enumeration value="large" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StyleModelInfoEditor_theme_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dark" />
+      <xs:enumeration value="light" />
+      <xs:enumeration value="editor-dark" />
+      <xs:enumeration value="editor-light" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StyleModelInfoEditor_dir_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ltr" />
+      <xs:enumeration value="Rtl" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="StyleModelInfoEditorType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="engine:VisualElement" />
+        </xs:sequence>
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:attribute default="Bottom" name="preferred-tooltip-placement" xmlns:q11="Unity.Muse.StyleTrainer" type="q11:StyleModelInfoEditor_preferred-tooltip-placement_Type" use="optional" />
+        <xs:attribute default="750" name="tooltip-delay-ms" type="xs:int" use="optional" />
+        <xs:attribute name="scale" xmlns:q12="Unity.Muse.StyleTrainer" type="q12:StyleModelInfoEditor_scale_Type" use="optional" />
+        <xs:attribute name="theme" xmlns:q13="Unity.Muse.StyleTrainer" type="q13:StyleModelInfoEditor_theme_Type" use="optional" />
+        <xs:attribute name="lang" type="xs:string" use="optional" />
+        <xs:attribute default="Ltr" name="dir" xmlns:q14="Unity.Muse.StyleTrainer" type="q14:StyleModelInfoEditor_dir_Type" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StyleModelInfoEditor" substitutionGroup="engine:VisualElement" xmlns:q15="Unity.Muse.StyleTrainer" type="q15:StyleModelInfoEditorType" />
+  <xs:simpleType name="StyleModelInfoEditorContent_preferred-tooltip-placement_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Bottom" />
+      <xs:enumeration value="BottomLeft" />
+      <xs:enumeration value="BottomRight" />
+      <xs:enumeration value="BottomStart" />
+      <xs:enumeration value="BottomEnd" />
+      <xs:enumeration value="Top" />
+      <xs:enumeration value="TopLeft" />
+      <xs:enumeration value="TopRight" />
+      <xs:enumeration value="TopStart" />
+      <xs:enumeration value="TopEnd" />
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="LeftTop" />
+      <xs:enumeration value="LeftBottom" />
+      <xs:enumeration value="Start" />
+      <xs:enumeration value="StartTop" />
+      <xs:enumeration value="StartBottom" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="RightTop" />
+      <xs:enumeration value="RightBottom" />
+      <xs:enumeration value="End" />
+      <xs:enumeration value="EndTop" />
+      <xs:enumeration value="EndBottom" />
+      <xs:enumeration value="InsideTopStart" />
+      <xs:enumeration value="InsideTopLeft" />
+      <xs:enumeration value="InsideTop" />
+      <xs:enumeration value="InsideTopEnd" />
+      <xs:enumeration value="InsideBottomStart" />
+      <xs:enumeration value="InsideBottom" />
+      <xs:enumeration value="InsideBottomEnd" />
+      <xs:enumeration value="InsideStart" />
+      <xs:enumeration value="InsideEnd" />
+      <xs:enumeration value="InsideCenter" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StyleModelInfoEditorContent_scale_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="small" />
+      <xs:enumeration value="medium" />
+      <xs:enumeration value="large" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StyleModelInfoEditorContent_theme_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dark" />
+      <xs:enumeration value="light" />
+      <xs:enumeration value="editor-dark" />
+      <xs:enumeration value="editor-light" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StyleModelInfoEditorContent_dir_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ltr" />
+      <xs:enumeration value="Rtl" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="StyleModelInfoEditorContentType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="engine:VisualElement" />
+        </xs:sequence>
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:attribute default="Bottom" name="preferred-tooltip-placement" xmlns:q16="Unity.Muse.StyleTrainer" type="q16:StyleModelInfoEditorContent_preferred-tooltip-placement_Type" use="optional" />
+        <xs:attribute default="750" name="tooltip-delay-ms" type="xs:int" use="optional" />
+        <xs:attribute name="scale" xmlns:q17="Unity.Muse.StyleTrainer" type="q17:StyleModelInfoEditorContent_scale_Type" use="optional" />
+        <xs:attribute name="theme" xmlns:q18="Unity.Muse.StyleTrainer" type="q18:StyleModelInfoEditorContent_theme_Type" use="optional" />
+        <xs:attribute name="lang" type="xs:string" use="optional" />
+        <xs:attribute default="Ltr" name="dir" xmlns:q19="Unity.Muse.StyleTrainer" type="q19:StyleModelInfoEditorContent_dir_Type" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StyleModelInfoEditorContent" substitutionGroup="engine:VisualElement" xmlns:q20="Unity.Muse.StyleTrainer" type="q20:StyleModelInfoEditorContentType" />
+  <xs:simpleType name="StyleModelListItem_preferred-tooltip-placement_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Bottom" />
+      <xs:enumeration value="BottomLeft" />
+      <xs:enumeration value="BottomRight" />
+      <xs:enumeration value="BottomStart" />
+      <xs:enumeration value="BottomEnd" />
+      <xs:enumeration value="Top" />
+      <xs:enumeration value="TopLeft" />
+      <xs:enumeration value="TopRight" />
+      <xs:enumeration value="TopStart" />
+      <xs:enumeration value="TopEnd" />
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="LeftTop" />
+      <xs:enumeration value="LeftBottom" />
+      <xs:enumeration value="Start" />
+      <xs:enumeration value="StartTop" />
+      <xs:enumeration value="StartBottom" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="RightTop" />
+      <xs:enumeration value="RightBottom" />
+      <xs:enumeration value="End" />
+      <xs:enumeration value="EndTop" />
+      <xs:enumeration value="EndBottom" />
+      <xs:enumeration value="InsideTopStart" />
+      <xs:enumeration value="InsideTopLeft" />
+      <xs:enumeration value="InsideTop" />
+      <xs:enumeration value="InsideTopEnd" />
+      <xs:enumeration value="InsideBottomStart" />
+      <xs:enumeration value="InsideBottom" />
+      <xs:enumeration value="InsideBottomEnd" />
+      <xs:enumeration value="InsideStart" />
+      <xs:enumeration value="InsideEnd" />
+      <xs:enumeration value="InsideCenter" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StyleModelListItem_scale_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="small" />
+      <xs:enumeration value="medium" />
+      <xs:enumeration value="large" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StyleModelListItem_theme_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dark" />
+      <xs:enumeration value="light" />
+      <xs:enumeration value="editor-dark" />
+      <xs:enumeration value="editor-light" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StyleModelListItem_dir_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ltr" />
+      <xs:enumeration value="Rtl" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="StyleModelListItemType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="engine:VisualElement" />
+        </xs:sequence>
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:attribute default="Bottom" name="preferred-tooltip-placement" xmlns:q21="Unity.Muse.StyleTrainer" type="q21:StyleModelListItem_preferred-tooltip-placement_Type" use="optional" />
+        <xs:attribute default="750" name="tooltip-delay-ms" type="xs:int" use="optional" />
+        <xs:attribute name="scale" xmlns:q22="Unity.Muse.StyleTrainer" type="q22:StyleModelListItem_scale_Type" use="optional" />
+        <xs:attribute name="theme" xmlns:q23="Unity.Muse.StyleTrainer" type="q23:StyleModelListItem_theme_Type" use="optional" />
+        <xs:attribute name="lang" type="xs:string" use="optional" />
+        <xs:attribute default="Ltr" name="dir" xmlns:q24="Unity.Muse.StyleTrainer" type="q24:StyleModelListItem_dir_Type" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StyleModelListItem" substitutionGroup="engine:VisualElement" xmlns:q25="Unity.Muse.StyleTrainer" type="q25:StyleModelListItemType" />
+  <xs:simpleType name="SampleOutputVersionRow_preferred-tooltip-placement_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Bottom" />
+      <xs:enumeration value="BottomLeft" />
+      <xs:enumeration value="BottomRight" />
+      <xs:enumeration value="BottomStart" />
+      <xs:enumeration value="BottomEnd" />
+      <xs:enumeration value="Top" />
+      <xs:enumeration value="TopLeft" />
+      <xs:enumeration value="TopRight" />
+      <xs:enumeration value="TopStart" />
+      <xs:enumeration value="TopEnd" />
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="LeftTop" />
+      <xs:enumeration value="LeftBottom" />
+      <xs:enumeration value="Start" />
+      <xs:enumeration value="StartTop" />
+      <xs:enumeration value="StartBottom" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="RightTop" />
+      <xs:enumeration value="RightBottom" />
+      <xs:enumeration value="End" />
+      <xs:enumeration value="EndTop" />
+      <xs:enumeration value="EndBottom" />
+      <xs:enumeration value="InsideTopStart" />
+      <xs:enumeration value="InsideTopLeft" />
+      <xs:enumeration value="InsideTop" />
+      <xs:enumeration value="InsideTopEnd" />
+      <xs:enumeration value="InsideBottomStart" />
+      <xs:enumeration value="InsideBottom" />
+      <xs:enumeration value="InsideBottomEnd" />
+      <xs:enumeration value="InsideStart" />
+      <xs:enumeration value="InsideEnd" />
+      <xs:enumeration value="InsideCenter" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SampleOutputVersionRow_scale_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="small" />
+      <xs:enumeration value="medium" />
+      <xs:enumeration value="large" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SampleOutputVersionRow_theme_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dark" />
+      <xs:enumeration value="light" />
+      <xs:enumeration value="editor-dark" />
+      <xs:enumeration value="editor-light" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SampleOutputVersionRow_dir_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ltr" />
+      <xs:enumeration value="Rtl" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SampleOutputVersionRowType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="engine:VisualElement" />
+        </xs:sequence>
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:attribute default="Bottom" name="preferred-tooltip-placement" xmlns:q26="Unity.Muse.StyleTrainer" type="q26:SampleOutputVersionRow_preferred-tooltip-placement_Type" use="optional" />
+        <xs:attribute default="750" name="tooltip-delay-ms" type="xs:int" use="optional" />
+        <xs:attribute name="scale" xmlns:q27="Unity.Muse.StyleTrainer" type="q27:SampleOutputVersionRow_scale_Type" use="optional" />
+        <xs:attribute name="theme" xmlns:q28="Unity.Muse.StyleTrainer" type="q28:SampleOutputVersionRow_theme_Type" use="optional" />
+        <xs:attribute name="lang" type="xs:string" use="optional" />
+        <xs:attribute default="Ltr" name="dir" xmlns:q29="Unity.Muse.StyleTrainer" type="q29:SampleOutputVersionRow_dir_Type" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SampleOutputVersionRow" substitutionGroup="engine:VisualElement" xmlns:q30="Unity.Muse.StyleTrainer" type="q30:SampleOutputVersionRowType" />
+  <xs:complexType name="PreviewImageType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PreviewImage" substitutionGroup="engine:VisualElement" xmlns:q31="Unity.Muse.StyleTrainer" type="q31:PreviewImageType" />
+  <xs:simpleType name="TrainingItemGridItem_preferred-tooltip-placement_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Bottom" />
+      <xs:enumeration value="BottomLeft" />
+      <xs:enumeration value="BottomRight" />
+      <xs:enumeration value="BottomStart" />
+      <xs:enumeration value="BottomEnd" />
+      <xs:enumeration value="Top" />
+      <xs:enumeration value="TopLeft" />
+      <xs:enumeration value="TopRight" />
+      <xs:enumeration value="TopStart" />
+      <xs:enumeration value="TopEnd" />
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="LeftTop" />
+      <xs:enumeration value="LeftBottom" />
+      <xs:enumeration value="Start" />
+      <xs:enumeration value="StartTop" />
+      <xs:enumeration value="StartBottom" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="RightTop" />
+      <xs:enumeration value="RightBottom" />
+      <xs:enumeration value="End" />
+      <xs:enumeration value="EndTop" />
+      <xs:enumeration value="EndBottom" />
+      <xs:enumeration value="InsideTopStart" />
+      <xs:enumeration value="InsideTopLeft" />
+      <xs:enumeration value="InsideTop" />
+      <xs:enumeration value="InsideTopEnd" />
+      <xs:enumeration value="InsideBottomStart" />
+      <xs:enumeration value="InsideBottom" />
+      <xs:enumeration value="InsideBottomEnd" />
+      <xs:enumeration value="InsideStart" />
+      <xs:enumeration value="InsideEnd" />
+      <xs:enumeration value="InsideCenter" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TrainingItemGridItem_scale_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="small" />
+      <xs:enumeration value="medium" />
+      <xs:enumeration value="large" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TrainingItemGridItem_theme_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dark" />
+      <xs:enumeration value="light" />
+      <xs:enumeration value="editor-dark" />
+      <xs:enumeration value="editor-light" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TrainingItemGridItem_dir_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ltr" />
+      <xs:enumeration value="Rtl" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="TrainingItemGridItemType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="engine:VisualElement" />
+        </xs:sequence>
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:attribute default="Bottom" name="preferred-tooltip-placement" xmlns:q32="Unity.Muse.StyleTrainer" type="q32:TrainingItemGridItem_preferred-tooltip-placement_Type" use="optional" />
+        <xs:attribute default="750" name="tooltip-delay-ms" type="xs:int" use="optional" />
+        <xs:attribute name="scale" xmlns:q33="Unity.Muse.StyleTrainer" type="q33:TrainingItemGridItem_scale_Type" use="optional" />
+        <xs:attribute name="theme" xmlns:q34="Unity.Muse.StyleTrainer" type="q34:TrainingItemGridItem_theme_Type" use="optional" />
+        <xs:attribute name="lang" type="xs:string" use="optional" />
+        <xs:attribute default="Ltr" name="dir" xmlns:q35="Unity.Muse.StyleTrainer" type="q35:TrainingItemGridItem_dir_Type" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TrainingItemGridItem" substitutionGroup="engine:VisualElement" xmlns:q36="Unity.Muse.StyleTrainer" type="q36:TrainingItemGridItemType" />
+  <xs:simpleType name="TrainingSetView_preferred-tooltip-placement_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Bottom" />
+      <xs:enumeration value="BottomLeft" />
+      <xs:enumeration value="BottomRight" />
+      <xs:enumeration value="BottomStart" />
+      <xs:enumeration value="BottomEnd" />
+      <xs:enumeration value="Top" />
+      <xs:enumeration value="TopLeft" />
+      <xs:enumeration value="TopRight" />
+      <xs:enumeration value="TopStart" />
+      <xs:enumeration value="TopEnd" />
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="LeftTop" />
+      <xs:enumeration value="LeftBottom" />
+      <xs:enumeration value="Start" />
+      <xs:enumeration value="StartTop" />
+      <xs:enumeration value="StartBottom" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="RightTop" />
+      <xs:enumeration value="RightBottom" />
+      <xs:enumeration value="End" />
+      <xs:enumeration value="EndTop" />
+      <xs:enumeration value="EndBottom" />
+      <xs:enumeration value="InsideTopStart" />
+      <xs:enumeration value="InsideTopLeft" />
+      <xs:enumeration value="InsideTop" />
+      <xs:enumeration value="InsideTopEnd" />
+      <xs:enumeration value="InsideBottomStart" />
+      <xs:enumeration value="InsideBottom" />
+      <xs:enumeration value="InsideBottomEnd" />
+      <xs:enumeration value="InsideStart" />
+      <xs:enumeration value="InsideEnd" />
+      <xs:enumeration value="InsideCenter" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TrainingSetView_scale_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="small" />
+      <xs:enumeration value="medium" />
+      <xs:enumeration value="large" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TrainingSetView_theme_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dark" />
+      <xs:enumeration value="light" />
+      <xs:enumeration value="editor-dark" />
+      <xs:enumeration value="editor-light" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TrainingSetView_dir_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ltr" />
+      <xs:enumeration value="Rtl" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="TrainingSetViewType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="engine:VisualElement" />
+        </xs:sequence>
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:attribute default="Bottom" name="preferred-tooltip-placement" xmlns:q37="Unity.Muse.StyleTrainer" type="q37:TrainingSetView_preferred-tooltip-placement_Type" use="optional" />
+        <xs:attribute default="750" name="tooltip-delay-ms" type="xs:int" use="optional" />
+        <xs:attribute name="scale" xmlns:q38="Unity.Muse.StyleTrainer" type="q38:TrainingSetView_scale_Type" use="optional" />
+        <xs:attribute name="theme" xmlns:q39="Unity.Muse.StyleTrainer" type="q39:TrainingSetView_theme_Type" use="optional" />
+        <xs:attribute name="lang" type="xs:string" use="optional" />
+        <xs:attribute default="Ltr" name="dir" xmlns:q40="Unity.Muse.StyleTrainer" type="q40:TrainingSetView_dir_Type" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TrainingSetView" substitutionGroup="engine:VisualElement" xmlns:q41="Unity.Muse.StyleTrainer" type="q41:TrainingSetViewType" />
+  <xs:simpleType name="StyleTrainerMainUI_preferred-tooltip-placement_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Bottom" />
+      <xs:enumeration value="BottomLeft" />
+      <xs:enumeration value="BottomRight" />
+      <xs:enumeration value="BottomStart" />
+      <xs:enumeration value="BottomEnd" />
+      <xs:enumeration value="Top" />
+      <xs:enumeration value="TopLeft" />
+      <xs:enumeration value="TopRight" />
+      <xs:enumeration value="TopStart" />
+      <xs:enumeration value="TopEnd" />
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="LeftTop" />
+      <xs:enumeration value="LeftBottom" />
+      <xs:enumeration value="Start" />
+      <xs:enumeration value="StartTop" />
+      <xs:enumeration value="StartBottom" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="RightTop" />
+      <xs:enumeration value="RightBottom" />
+      <xs:enumeration value="End" />
+      <xs:enumeration value="EndTop" />
+      <xs:enumeration value="EndBottom" />
+      <xs:enumeration value="InsideTopStart" />
+      <xs:enumeration value="InsideTopLeft" />
+      <xs:enumeration value="InsideTop" />
+      <xs:enumeration value="InsideTopEnd" />
+      <xs:enumeration value="InsideBottomStart" />
+      <xs:enumeration value="InsideBottom" />
+      <xs:enumeration value="InsideBottomEnd" />
+      <xs:enumeration value="InsideStart" />
+      <xs:enumeration value="InsideEnd" />
+      <xs:enumeration value="InsideCenter" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StyleTrainerMainUI_scale_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="small" />
+      <xs:enumeration value="medium" />
+      <xs:enumeration value="large" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StyleTrainerMainUI_theme_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dark" />
+      <xs:enumeration value="light" />
+      <xs:enumeration value="editor-dark" />
+      <xs:enumeration value="editor-light" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StyleTrainerMainUI_dir_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ltr" />
+      <xs:enumeration value="Rtl" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="StyleTrainerMainUIType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="engine:VisualElement" />
+        </xs:sequence>
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:attribute default="Bottom" name="preferred-tooltip-placement" xmlns:q42="Unity.Muse.StyleTrainer" type="q42:StyleTrainerMainUI_preferred-tooltip-placement_Type" use="optional" />
+        <xs:attribute default="750" name="tooltip-delay-ms" type="xs:int" use="optional" />
+        <xs:attribute name="scale" xmlns:q43="Unity.Muse.StyleTrainer" type="q43:StyleTrainerMainUI_scale_Type" use="optional" />
+        <xs:attribute name="theme" xmlns:q44="Unity.Muse.StyleTrainer" type="q44:StyleTrainerMainUI_theme_Type" use="optional" />
+        <xs:attribute name="lang" type="xs:string" use="optional" />
+        <xs:attribute default="Ltr" name="dir" xmlns:q45="Unity.Muse.StyleTrainer" type="q45:StyleTrainerMainUI_dir_Type" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StyleTrainerMainUI" substitutionGroup="engine:VisualElement" xmlns:q46="Unity.Muse.StyleTrainer" type="q46:StyleTrainerMainUIType" />
+  <xs:simpleType name="SampleOutputVersionFoldoutHeader_preferred-tooltip-placement_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Bottom" />
+      <xs:enumeration value="BottomLeft" />
+      <xs:enumeration value="BottomRight" />
+      <xs:enumeration value="BottomStart" />
+      <xs:enumeration value="BottomEnd" />
+      <xs:enumeration value="Top" />
+      <xs:enumeration value="TopLeft" />
+      <xs:enumeration value="TopRight" />
+      <xs:enumeration value="TopStart" />
+      <xs:enumeration value="TopEnd" />
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="LeftTop" />
+      <xs:enumeration value="LeftBottom" />
+      <xs:enumeration value="Start" />
+      <xs:enumeration value="StartTop" />
+      <xs:enumeration value="StartBottom" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="RightTop" />
+      <xs:enumeration value="RightBottom" />
+      <xs:enumeration value="End" />
+      <xs:enumeration value="EndTop" />
+      <xs:enumeration value="EndBottom" />
+      <xs:enumeration value="InsideTopStart" />
+      <xs:enumeration value="InsideTopLeft" />
+      <xs:enumeration value="InsideTop" />
+      <xs:enumeration value="InsideTopEnd" />
+      <xs:enumeration value="InsideBottomStart" />
+      <xs:enumeration value="InsideBottom" />
+      <xs:enumeration value="InsideBottomEnd" />
+      <xs:enumeration value="InsideStart" />
+      <xs:enumeration value="InsideEnd" />
+      <xs:enumeration value="InsideCenter" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SampleOutputVersionFoldoutHeader_scale_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="small" />
+      <xs:enumeration value="medium" />
+      <xs:enumeration value="large" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SampleOutputVersionFoldoutHeader_theme_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dark" />
+      <xs:enumeration value="light" />
+      <xs:enumeration value="editor-dark" />
+      <xs:enumeration value="editor-light" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SampleOutputVersionFoldoutHeader_dir_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ltr" />
+      <xs:enumeration value="Rtl" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SampleOutputVersionFoldoutHeaderType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="engine:VisualElement" />
+        </xs:sequence>
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:attribute default="Bottom" name="preferred-tooltip-placement" xmlns:q47="Unity.Muse.StyleTrainer" type="q47:SampleOutputVersionFoldoutHeader_preferred-tooltip-placement_Type" use="optional" />
+        <xs:attribute default="750" name="tooltip-delay-ms" type="xs:int" use="optional" />
+        <xs:attribute name="scale" xmlns:q48="Unity.Muse.StyleTrainer" type="q48:SampleOutputVersionFoldoutHeader_scale_Type" use="optional" />
+        <xs:attribute name="theme" xmlns:q49="Unity.Muse.StyleTrainer" type="q49:SampleOutputVersionFoldoutHeader_theme_Type" use="optional" />
+        <xs:attribute name="lang" type="xs:string" use="optional" />
+        <xs:attribute default="Ltr" name="dir" xmlns:q50="Unity.Muse.StyleTrainer" type="q50:SampleOutputVersionFoldoutHeader_dir_Type" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SampleOutputVersionFoldoutHeader" substitutionGroup="engine:VisualElement" xmlns:q51="Unity.Muse.StyleTrainer" type="q51:SampleOutputVersionFoldoutHeaderType" />
+  <xs:simpleType name="StyleModelList_preferred-tooltip-placement_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Bottom" />
+      <xs:enumeration value="BottomLeft" />
+      <xs:enumeration value="BottomRight" />
+      <xs:enumeration value="BottomStart" />
+      <xs:enumeration value="BottomEnd" />
+      <xs:enumeration value="Top" />
+      <xs:enumeration value="TopLeft" />
+      <xs:enumeration value="TopRight" />
+      <xs:enumeration value="TopStart" />
+      <xs:enumeration value="TopEnd" />
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="LeftTop" />
+      <xs:enumeration value="LeftBottom" />
+      <xs:enumeration value="Start" />
+      <xs:enumeration value="StartTop" />
+      <xs:enumeration value="StartBottom" />
+      <xs:enumeration value="Right" />
+      <xs:enumeration value="RightTop" />
+      <xs:enumeration value="RightBottom" />
+      <xs:enumeration value="End" />
+      <xs:enumeration value="EndTop" />
+      <xs:enumeration value="EndBottom" />
+      <xs:enumeration value="InsideTopStart" />
+      <xs:enumeration value="InsideTopLeft" />
+      <xs:enumeration value="InsideTop" />
+      <xs:enumeration value="InsideTopEnd" />
+      <xs:enumeration value="InsideBottomStart" />
+      <xs:enumeration value="InsideBottom" />
+      <xs:enumeration value="InsideBottomEnd" />
+      <xs:enumeration value="InsideStart" />
+      <xs:enumeration value="InsideEnd" />
+      <xs:enumeration value="InsideCenter" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StyleModelList_scale_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="small" />
+      <xs:enumeration value="medium" />
+      <xs:enumeration value="large" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StyleModelList_theme_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dark" />
+      <xs:enumeration value="light" />
+      <xs:enumeration value="editor-dark" />
+      <xs:enumeration value="editor-light" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StyleModelList_dir_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ltr" />
+      <xs:enumeration value="Rtl" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="StyleModelListType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="engine:VisualElement" />
+        </xs:sequence>
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="None" name="usage-hints" type="engine:VisualElement_usage-hints_Type" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="class" type="xs:string" use="optional" />
+        <xs:attribute default="" name="content-container" type="xs:string" use="optional" />
+        <xs:attribute default="" name="style" type="xs:string" use="optional" />
+        <xs:attribute default="Bottom" name="preferred-tooltip-placement" xmlns:q52="Unity.Muse.StyleTrainer" type="q52:StyleModelList_preferred-tooltip-placement_Type" use="optional" />
+        <xs:attribute default="750" name="tooltip-delay-ms" type="xs:int" use="optional" />
+        <xs:attribute name="scale" xmlns:q53="Unity.Muse.StyleTrainer" type="q53:StyleModelList_scale_Type" use="optional" />
+        <xs:attribute name="theme" xmlns:q54="Unity.Muse.StyleTrainer" type="q54:StyleModelList_theme_Type" use="optional" />
+        <xs:attribute name="lang" type="xs:string" use="optional" />
+        <xs:attribute default="Ltr" name="dir" xmlns:q55="Unity.Muse.StyleTrainer" type="q55:StyleModelList_dir_Type" use="optional" />
+        <xs:attribute default="true" name="enabled" type="xs:boolean" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StyleModelList" substitutionGroup="engine:VisualElement" xmlns:q56="Unity.Muse.StyleTrainer" type="q56:StyleModelListType" />
+</xs:schema>

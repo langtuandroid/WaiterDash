@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f12f7290045bd40b6ec6b49f9218d9, type: 3}
+  m_Name: DiningStateIconsSO
+  m_EditorClassIdentifier: 
+  WaitingAtTable: {fileID: 21300000, guid: 55b8fd631f9ed3e4bac45ab7975fb3da, type: 3}
+  WaitingForMenuCard: {fileID: 21300000, guid: a627d64b34ac8f54a956fa3870ddde59, type: 3}
+  ReadingMenu: {fileID: 21300000, guid: 1433da4e55a6f9c4f8f2bf3a2ee95225, type: 3}
+  ReadyToOrder: {fileID: 21300000, guid: d89271d5ce5ba9943b6c779606915762, type: 3}
+  WaitingForFood: {fileID: 21300000, guid: ae808416768836c41ba294f904497e34, type: 3}
+  EatingFoodAndDrinks: {fileID: 21300000, guid: 77b39e9a3d5e5b94d821d2f93443c448,
+    type: 3}
+  WaitingToPayBills: {fileID: 21300000, guid: 021256faa81dae7419df204b0bd76fc5, type: 3}
+  DoneDining: {fileID: 21300000, guid: a85135c518bd68c4cafe503c69af01bd, type: 3}

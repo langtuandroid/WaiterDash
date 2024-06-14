@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa8223ceafcc8242ac619a26e560aeb, type: 3}
+  m_Name: BananaToBananaDrink
+  m_EditorClassIdentifier: 
+  FruitObjectSO: {fileID: 11400000, guid: 74100cb5b4bd6744f877084135db89c7, type: 2}
+  RestaurantObjectSO: {fileID: 11400000, guid: 92c5ff35e0724ae47a16aaacff0208a3, type: 2}
